@@ -8,13 +8,13 @@ library(tidyverse)
 
 input <- read.table('data/input_day1.txt')
 
-test <-
+test_1 <-
   tribble(
     ~V1,
-    'ohohohohoh9hshshshshs6',
-    'threethree4567',
-    '4sixteen9nnn',
-    'twone6'
+    '1abc2',
+    'pqr3stu8vwx',
+    'a1b2c3d4e5f',
+    'treb7uchet'
   )
 
 
@@ -29,14 +29,26 @@ trebuchet <- function(df){
 
 }
 
+trebuchet(test_1)
 trebuchet(input)
-trebuchet(test)
 
 ## Part 2 ----
 # Replace instances of text (zero:nine) with numbers
 # Strip first and last single digit number
 # Combine to make two-digit number
 # Add all values
+
+test_2 <-
+  tribble(
+    ~V1,
+    'two1nine',
+    'eightwothree',
+    'abcone2threexyz',
+    'xtwone3four',
+    '4nineeightseven2',
+    'zoneight234',
+    '7pqrstsixteen'
+  )
 
 
 trebuchet_modified <- function(df){
@@ -62,5 +74,5 @@ trebuchet_modified <- function(df){
     pull()
 }
 
+trebuchet_modified(test_2)
 trebuchet_modified(input)
-trebuchet_modified(test)
