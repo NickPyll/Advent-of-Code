@@ -1,4 +1,4 @@
-# Day 1 Gear Ratios----
+# Day 3 Gear Ratios----
 ## Part 1 ----
 # Identify all part numbers
 # Sum all part numbers
@@ -46,45 +46,38 @@ y.df_loc_spec <- as.data.frame(x.dt) |>
 rm(list = ls(pattern = "x."))
 rm(part_number)
 
-y.spec1 <-
+# this should be a function but too lazy and it's 3 in the morning. I'm going to bed
+df_loc_spec <-
   y.df_loc_spec |> 
-  mutate(row = row - 1)
-
-y.spec2 <-
-  y.df_loc_spec |> 
-  mutate(row = row + 1)
-
-y.spec3 <-
-  y.df_loc_spec |> 
-  mutate(mark = mark - 1)
-
-y.spec4 <-
-  y.df_loc_spec |> 
-  mutate(mark = mark + 1)
-
-y.spec5 <-
-  y.df_loc_spec |> 
-  mutate(row = row - 1,
-         mark = mark - 1)
-
-y.spec6 <-
-  y.df_loc_spec |> 
-  mutate(row = row - 1,
-         mark = mark + 1)
-
-y.spec7 <-
-  y.df_loc_spec |> 
-  mutate(row = row + 1,
-         mark = mark - 1)
-
-y.spec8 <-
-  y.df_loc_spec |> 
-  mutate(row = row + 1,
-         mark = mark + 1)
-
-
-df_loc_spec <- bind_rows(y.spec1, y.spec2, y.spec3, y.spec4, y.spec5, y.spec6, y.spec7, y.spec8, y.df_loc_spec)
-
+  bind_rows(
+    y.df_loc_spec |>
+      mutate(row = row - 1)) |> 
+  bind_rows(
+    y.df_loc_spec |>
+      mutate(row = row + 1)) |> 
+  bind_rows(
+    y.df_loc_spec |>
+      mutate(mark = mark - 1)) |> 
+  bind_rows(
+    y.df_loc_spec |>
+      mutate(mark = mark + 1)) |> 
+  bind_rows(
+    y.df_loc_spec |>
+      mutate(row = row - 1,
+             mark = mark - 1)) |> 
+  bind_rows(
+    y.df_loc_spec |>
+      mutate(row = row - 1,
+             mark = mark + 1)) |> 
+  bind_rows(
+    y.df_loc_spec |>
+      mutate(row = row + 1,
+             mark = mark - 1)) |> 
+  bind_rows(
+    y.df_loc_spec |>
+      mutate(row = row + 1,
+             mark = mark + 1))
+  
 rm(list = ls(pattern = "y."))
 
 df_loc_num |> 
@@ -120,43 +113,37 @@ y.df_loc_spec <-
 rm(list = ls(pattern = "x."))
 rm(special_character)
 
-y.spec1 <-
+# this should be a function but too lazy and it's 3 in the morning. I'm going to bed
+df_loc_spec <-
   y.df_loc_spec |> 
-  mutate(row = row - 1)
-
-y.spec2 <-
-  y.df_loc_spec |> 
-  mutate(row = row + 1)
-
-y.spec3 <-
-  y.df_loc_spec |> 
-  mutate(mark = mark - 1)
-
-y.spec4 <-
-  y.df_loc_spec |> 
-  mutate(mark = mark + 1)
-
-y.spec5 <-
-  y.df_loc_spec |> 
-  mutate(row = row - 1,
-         mark = mark - 1)
-
-y.spec6 <-
-  y.df_loc_spec |> 
-  mutate(row = row - 1,
-         mark = mark + 1)
-
-y.spec7 <-
-  y.df_loc_spec |> 
-  mutate(row = row + 1,
-         mark = mark - 1)
-
-y.spec8 <-
-  y.df_loc_spec |> 
-  mutate(row = row + 1,
-         mark = mark + 1)
-
-df_loc_spec <- bind_rows(y.spec1, y.spec2, y.spec3, y.spec4, y.spec5, y.spec6, y.spec7, y.spec8, y.df_loc_spec) |> 
+  bind_rows(
+    y.df_loc_spec |>
+      mutate(row = row - 1)) |> 
+  bind_rows(
+    y.df_loc_spec |>
+      mutate(row = row + 1)) |> 
+  bind_rows(
+    y.df_loc_spec |>
+      mutate(mark = mark - 1)) |> 
+  bind_rows(
+    y.df_loc_spec |>
+      mutate(mark = mark + 1)) |> 
+  bind_rows(
+    y.df_loc_spec |>
+      mutate(row = row - 1,
+             mark = mark - 1)) |> 
+  bind_rows(
+    y.df_loc_spec |>
+      mutate(row = row - 1,
+             mark = mark + 1)) |> 
+  bind_rows(
+    y.df_loc_spec |>
+      mutate(row = row + 1,
+             mark = mark - 1)) |> 
+  bind_rows(
+    y.df_loc_spec |>
+      mutate(row = row + 1,
+             mark = mark + 1)) |> 
   filter(special_character == "*")
 
 rm(list = ls(pattern = "y."))
@@ -183,11 +170,6 @@ gears |>
   pivot_wider(names_from = row, values_from = part_number, names_prefix = 'part') |> 
   mutate(gear_ratio = part1 * part2) |> 
   summarize(sum = sum(gear_ratio)) |> 
-  pull()
-
-
-  
-  summarize(sum = sum(part_number)) |> 
   pull()
 
   
