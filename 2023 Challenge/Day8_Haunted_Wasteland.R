@@ -1,4 +1,4 @@
-# Day 8 ----
+# Day 8 Haunted Wasteland----
 ## Part 1 ----
 # 
 # 
