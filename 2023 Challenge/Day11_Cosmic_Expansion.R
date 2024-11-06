@@ -4,7 +4,7 @@
 library(tidyverse)
 library(data.table)
 
-file <- 'data/input_day11_test.txt'
+file <- 'data/input_day11.txt'
 
 universe <- as.list(unlist(readLines(file)))
 
