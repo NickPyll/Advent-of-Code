@@ -4,16 +4,16 @@ library(tidyverse)
 
 input <- read.table("2024 Challenge/data/input_day1.txt")
 
-input <-
-  tribble(
-    ~V1, ~V2,
-    3, 4,
-    4, 3,
-    2, 5,
-    1, 3,
-    3, 9,
-    3, 3
-  )
+# input <-
+#   tribble(
+#     ~V1, ~V2,
+#     3, 4,
+#     4, 3,
+#     2, 5,
+#     1, 3,
+#     3, 9,
+#     3, 3
+#   )
 
 ## Part 1 ----
 
